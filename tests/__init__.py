@@ -2,3 +2,5 @@
 # copyright notices and license terms.
 
 from .test_account_payment_bank_wizard import suite
+
+__all__ = ['suite']
