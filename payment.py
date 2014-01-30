@@ -1,10 +1,8 @@
 #The COPYRIGHT file at the top level of this repository contains the full
 #copyright notices and license terms.
-
-from trytond.pool import Pool, PoolMeta
+from trytond.pool import PoolMeta
 
 __all__ = ['CreatePayments']
-
 __metaclass__ = PoolMeta
 
 
@@ -19,8 +17,8 @@ class CreatePayments:
         elif vals['party'] and vals['kind']:
             party = vals['party']
             if self.kind and party:
-                Party = Pool().get('party.party')
-                default_bank_account = getattr(Party,
-                    'get_' + self.kind + '_bank_account')
-                vals['bank_account'] = default_bank_account(party).id
+                default_bank_account = getattr(party,
+                    self.kind + '_bank_account')
+                vals['bank_account'] = (default_bank_account and
+                    default_bank_account.id or None)
         return vals
