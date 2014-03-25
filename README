@@ -1,6 +1,9 @@
 trytond_account_payment_bank_wizard
 ===================================
 
+WARNING: This module is not mantained anymore. Its features are implemented
+directly in account_payment_bank module.
+
 The account_payment_bank_wizard module of the Tryton application platform.
 
 Installing
